@@ -5,7 +5,7 @@
 #include <Adafruit_ISM330DHCX.h>
 
 BluetoothSerial SerialBT;
-Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
+// Adafruit_NeoPixel pixels(1, PIN_NEOPIXEL);
 byte BTData;
 
 /* Check if Bluetooth configurations are enabled in the SDK */
@@ -15,13 +15,12 @@ byte BTData;
 
 int t = 0;
 
-
 Adafruit_ISM330DHCX ism330dhcx;
 void setup(void) {
 
   int t = 0;
     
-  pixels.begin();
+  // pixels.begin();
   Serial.begin(115200);
   SerialBT.begin("Twitch Sensor");
   
@@ -51,8 +50,8 @@ void loop() {
 
   if (SerialBT.connected()){
 
-    pixels.setPixelColor(0, pixels.Color(0, 0, 255));
-    pixels.show();
+    // pixels.setPixelColor(0, pixels.Color(0, 0, 255));
+    // pixels.show();
     sensors_event_t accel;
     sensors_event_t gyro;
     sensors_event_t temp;
@@ -79,9 +78,7 @@ void loop() {
   if (!SerialBT.connected()){
 
     t = 0;  
-    pixels.setPixelColor(0, pixels.Color(255, 0, 0));
-    pixels.show();
+    // pixels.setPixelColor(0, pixels.Color(255, 0, 0));
+    // pixels.show();
     
   }
-
-}
